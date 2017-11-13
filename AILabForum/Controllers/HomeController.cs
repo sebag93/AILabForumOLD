@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace AILabForum.Controllers
 {
+    //kontroler podstron aplikacji
     public class HomeController : Controller
     {
         public ActionResult Index()

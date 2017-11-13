@@ -1,0 +1,83 @@
+﻿@model AILabForum.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AILabForum</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            right: 40%;
+            top: 25%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    @*widok formularza logowania*@
+    <div id="login-div">
+        @using (Html.BeginForm("Autoryzacja", "Login", FormMethod.Post))
+        {
+            //tabela z formularzem
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline; text-align:center; font-size:20px">AILabForum</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.login)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.login)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.login)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.password)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.password)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @*komunikat o wprowadzeniu niepoprawnych danych*@
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.password)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="loguj" value="Zaloguj" />
+                        <input type="reset" name="resetuj" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        }
+
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

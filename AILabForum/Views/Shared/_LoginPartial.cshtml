@@ -1,0 +1,17 @@
+﻿    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @*@Html.ActionLink("Witaj, " + @Session["login"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Zarządzaj" })*@            
+            @{
+                try
+                {
+                    @Html.ActionLink("Witaj, " + @Session["login"].ToString() + "!", "", routeValues: null, htmlAttributes: new { title = "Zarządzaj" })
+                }
+                catch
+                {
+
+                }
+            }
+            
+        </li>
+        <li><a href="@Url.Action("Logout","Login")">Wyloguj</a></li>
+    </ul>
